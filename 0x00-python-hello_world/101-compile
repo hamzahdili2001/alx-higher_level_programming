@@ -1,11 +1,5 @@
 #!/bin/bash
-
 echo "Compiling $PYFILE ..."
-
-/usr/bin/py3compile $PYFILE
-
-COMPILED_FILE = $(ls  __pycache__/)
-
-mv __pycache__/$COMPI_FILE $PYFILE'c' 
-
+/usr/bin/py3compile $PYFILE 
+mv __pycache__/$(ls __pycache__/) $PYFILE'c'
 rmdir __pycache__
