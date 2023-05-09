@@ -1,0 +1,8 @@
+#!/usr/bin/python
+#!/bin/bash
+
+for file in *; do
+    if [[ -f "$file" && "$file" != "README.md" ]]; then
+        echo '#!/usr/bin/python' | cat - "$file" > temp && mv temp "$file"
+    fi
+done
