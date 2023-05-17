@@ -1,23 +1,24 @@
 def roman_to_int(roman_string):
-    if not isinstance(roman_string, str) or roman_string is None:
+    if type(roman_string) is not str or roman_string is None:
         return 0
     roman_to_int_dict = {
-        'I': 1,
-        'V': 5,
-        'X': 10,
-        'L': 50,
-        'C': 100,
+        'M': 1000,
         'D': 500,
-        'M': 1000
+        'C': 100,
+        'L': 50,
+        'X': 10,
+        'V': 5,
+        'I': 1
     }
     result = 0
-    prev = 0
+    last = 0
 
-    for c in reversed(roman_string):
-        value = roman_to_int_dict[c]
-        if value < prev:
-            result -= value
-        else:
-            result += value
-        prev = value
+    for c in roman_string:
+        if c in roman_to_int_dict:
+            value = roman_to_int_dict[c]
+            if last == 0 or last >= value:
+                result += value
+            elif last < value:
+                result += value - (last * 2)
+            last = value
     return result
