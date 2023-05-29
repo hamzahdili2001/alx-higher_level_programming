@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * print_python_float - Prints basic info about Python float objects
+ * @p: PyObject pointer to a Python float object
+ */
 void print_python_float(PyObject *p)
 {
 	double d;
@@ -24,6 +28,10 @@ void print_python_float(PyObject *p)
 	}
 }
 
+/**
+ * print_python_bytes - Prints basic info about Python bytes
+ * @p: PyObject pointer to a Python bytes object
+ */
 void print_python_bytes(PyObject *p)
 {
 	Py_ssize_t size, i;
@@ -50,6 +58,10 @@ void print_python_bytes(PyObject *p)
 	printf("\n");
 }
 
+/**
+ * print_python_list - Prints basic info about Python lists
+ * @p: PyObject pointer to a Python list
+ */
 void print_python_list(PyObject *p)
 {
 	Py_ssize_t size, i;
@@ -78,4 +90,3 @@ void print_python_list(PyObject *p)
 			print_python_float(item);
 	}
 }
-
