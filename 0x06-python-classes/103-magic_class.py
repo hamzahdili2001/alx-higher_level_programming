@@ -1,5 +1,8 @@
+#!/usr/bin/python3
+"""magic class"""
+
+
 import math
-"""MagicClass Python bytecode"""
 
 
 class MagicClass:
@@ -10,20 +13,20 @@ class MagicClass:
 
     @property
     def radius(self):
-        """radius property"""
-        return self.__radius
+        """returns: radius"""
+        return self.radius
 
     @radius.setter
     def radius(self, value):
-        """sets the value"""
+        """set the radius"""
         if type(value) not in [int, float]:
             raise TypeError("radius must be a number")
-        self.__radius = value
+        self.radius = value
 
     def area(self):
-        """calc the area"""
+        """claculate the area"""
         return self.radius ** 2 * math.pi
 
     def circumference(self):
-        """return circumference"""
+        """claculate circumference"""
         return 2 * math.pi * self.radius
