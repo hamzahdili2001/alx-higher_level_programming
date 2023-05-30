@@ -23,7 +23,7 @@ class MagicClass:
         """set the radius"""
         if type(value) not in [int, float]:
             raise TypeError("radius must be a number")
-        self.radius = value
+        self.__radius = value
 
     def area(self):
         """claculate the area"""
@@ -31,4 +31,4 @@ class MagicClass:
 
     def circumference(self):
         """claculate circumference"""
-        return 2 * math.pi * self.radius
+        return 2 * math.pi * self.__radius
