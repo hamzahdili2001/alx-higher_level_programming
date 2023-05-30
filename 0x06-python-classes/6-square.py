@@ -9,8 +9,8 @@ class Square:
         Args:
             sise - Private instance attribute
             position - a tuple of 2 positive integers"""
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -25,10 +25,10 @@ class Square:
             size (int): Private instance attribute."""
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
-        elif size < 0:
+        if size < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+
+        self.__size = size
 
     @property
     def position(self):
@@ -36,15 +36,19 @@ class Square:
         return self.__position
 
     @position.setter
-    def position(self):
+    def position(self, value):
         """position setter"""
         if not isinstance(value, tuple):
             raise TypeError('position must be a tuple of 2 positive integers')
         if len(value) != 2:
             raise TypeError('position must be a tuple of 2 positive integers')
-        if len([i for i in value if isinstance(i, int) and i >= 0]) != 2:
+        if not isinstance(value[0], int):
             raise TypeError("position must be a tuple of 2 positive integers")
-        
+        if not isinstance(value[1], int):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if value[0] < 0 or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+
         self.__position = value
 
     def area(self):
