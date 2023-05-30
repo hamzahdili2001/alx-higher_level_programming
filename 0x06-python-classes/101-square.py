@@ -57,27 +57,23 @@ class Square:
 
     def my_print(self):
         """prints square with the character #"""
-        if self.size == 0:
-            print()
+        if self.__size == 0:
+            print("")
             return
 
-        for i in range(self.position[1]):
-            print()
-
-        for i in range(self.size):
-            print(" " * self.position[0] + "#" * self.size)
+        [print("") for i in range(0, self.__position[1])]
+        for i in range(0, self.__size):
+            [print(" ", end="") for j in range(0, self.__position[0])]
+            [print("#", end="") for k in range(0, self.__size)]
+            print("")
 
     def __str__(self):
-        """Returns: result"""
-        result = ""
-        if self.size == 0:
-            result += "\n"
-            return result
-
-        for i in range(self.position[1]):
-            result += "\n"
-
-        for i in range(self.size):
-            result += " " * self.position[0] + "#" * self.size + "\n"
-
-        return result[:-1]
+        """Define the print()"""
+        if self.__size != 0:
+            [print("") for i in range(0, self.__position[1])]
+        for i in range(0, self.__size):
+            [print(" ", end="") for j in range(0, self.__position[0])]
+            [print("#", end="") for k in range(0, self.__size)]
+            if i != self.__size - 1:
+                print("")
+        return ("")
