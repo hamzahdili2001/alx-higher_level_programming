@@ -4,13 +4,13 @@
 
 class Node:
     """define singly linked list"""
-    def __init__(self, data, nextNode=None):
+    def __init__(self, data, next_node=None):
         """constractor
         Args:
             data - data of the the Node
             nextNode - next Node address"""
         self.data = data
-        self.nextNode = nextNode
+        self.next_node = next_node
 
     @property
     def data(self):
@@ -27,18 +27,18 @@ class Node:
         self.__data = value
 
     @property
-    def nextNode(self):
+    def next_node(self):
         """Returns: next Node"""
-        return self.__nextNode
+        return self.__next_node
 
-    @nextNode.setter
-    def nextNode(self, value):
+    @next_node.setter
+    def next_node(self, value):
         """sets the next Node
         Args:
             value - next node value."""
         if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
-        self.__nextNode = value
+        self.__next_node = value
 
 
 class SinglyLinkedList:
@@ -50,23 +50,26 @@ class SinglyLinkedList:
         """Inserting node in sorted mode
         Args: value - value -> data"""
         newNode = Node(value)
+
         if self.__head is None:
+            newNode.next_node = None
             self.__head = newNode
-        elif value < self.__head.data:
-            newNode.nextNode = self.__head
+        elif self.__head.data > value:
+            newNode.next_node = self.__head
             self.__head = newNode
         else:
             current = self.__head
-            while current.nextNode is not None and current.nextNode.data < value:
-                current = current.nextNode
-            newNode.nextNode = current.nextNode
-            current.nextNode = newNode
+            while current.next_node is not None and\
+                    current.next_node.data < value:
+                current = current.next_node
+            newNode.next_node = current.next_node
+            current.next_node = newNode
 
     def __str__(self):
-        """get nodes"""
+        """get the node and join them in nodes"""
         nodes = []
         current = self.__head
         while current is not None:
             nodes.append(str(current.data))
-            current = current.nextNode
+            current = current.next_node
         return "\n".join(nodes)
