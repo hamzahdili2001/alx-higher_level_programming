@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-"""magic class"""
+"""Definition iof MagicClass"""
 
 
 import math
 
 
 class MagicClass:
+    """MagicClass"""
+
     def __init__(self, radius=0):
         """constractor"""
         self.__radius = 0
