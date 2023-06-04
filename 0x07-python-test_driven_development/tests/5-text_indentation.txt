@@ -1,0 +1,167 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+>>> text_indentation("")
+<BLANKLINE>
+
+>>> text_indentation("Hello world.")
+Hello world.
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("This is a sentence with multiple periods and some questions? And colons: here and there.")
+This is a sentence with multiple periods and some questions?
+<BLANKLINE>
+And colons:
+<BLANKLINE>
+here and there.
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("NoNewLinesHere")
+NoNewLinesHere
+
+>>> text_indentation("This is a sentence with a period at the end.")
+This is a sentence with a period at the end.
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("A question here? And another question here?")
+A question here?
+<BLANKLINE>
+And another question here?
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("This is a sentence with a colon: and another colon:")
+This is a sentence with a colon:
+<BLANKLINE>
+and another colon:
+<BLANKLINE>
+<BLANKLINE>
+
+
+
+>>> text_indentation("Multiple periods. together with a question?")
+Multiple periods.
+<BLANKLINE>
+together with a question?
+<BLANKLINE>
+<BLANKLINE>
+
+
+
+>>> text_indentation("This sentence ends with a colon:")
+This sentence ends with a colon:
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation(123)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(None)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(True)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(["Hello", "world"])
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation("This is a sentence. This is another sentence.")
+This is a sentence.
+<BLANKLINE>
+This is another sentence.
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("This is a sentence with a question? This is another sentence.")
+This is a sentence with a question?
+<BLANKLINE>
+This is another sentence.
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("This is a sentence with a colon: This is another sentence.")
+This is a sentence with a colon:
+<BLANKLINE>
+This is another sentence.
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("This is a sentence. This is another sentence with a question?")
+This is a sentence.
+<BLANKLINE>
+This is another sentence with a question?
+<BLANKLINE>
+<BLANKLINE>
+
+
+
+>>> text_indentation("This is a sentence. This is another sentence with a colon:")
+This is a sentence.
+<BLANKLINE>
+This is another sentence with a colon:
+<BLANKLINE>
+<BLANKLINE>
+
+
+
+>>> text_indentation("This is a sentence with multiple periods... This is another sentence with a colon:")
+This is a sentence with multiple periods.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+This is another sentence with a colon:
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("This is a sentence. This is another sentence. This is a third sentence.")
+This is a sentence.
+<BLANKLINE>
+This is another sentence.
+<BLANKLINE>
+This is a third sentence.
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("This is a sentence with a question? This is another sentence. This is a third sentence.")
+This is a sentence with a question?
+<BLANKLINE>
+This is another sentence.
+<BLANKLINE>
+This is a third sentence.
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("This is a sentence with a colon: This is another sentence. This is a third sentence.")
+This is a sentence with a colon:
+<BLANKLINE>
+This is another sentence.
+<BLANKLINE>
+This is a third sentence.
+<BLANKLINE>
+<BLANKLINE>
+
+
+>>> text_indentation("This is a sentence. This is another sentence with a question? This is a third sentence.")
+This is a sentence.
+<BLANKLINE>
+This is another sentence with a question?
+<BLANKLINE>
+This is a third sentence.
+<BLANKLINE>
+<BLANKLINE>
+
