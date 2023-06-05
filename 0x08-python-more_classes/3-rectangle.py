@@ -13,6 +13,19 @@ class Rectangle():
         self.height = height
         self.width = width
 
+    def __str__(self):
+        """Print Rectangle with char '#'."""
+        if self.__width == 0 or self.__height == 0:
+            return ''
+        rows = ['#' * self.__width for _ in range(self.__height)]
+        return '\n'.join(rows)
+
+    def __repr__(self):
+        """
+        Rectangle that can be used to recreate it
+        """
+        return "Rectangle({}, {})".format(self.__width, self.__height)
+
     @property
     def width(self):
         """Property to retrieve width"""
@@ -51,21 +64,3 @@ class Rectangle():
             return 0
         else:
             return 2 * (self.__width + self.__height)
-
-    def __str__(self):
-        """Print Rectangle with char '#'."""
-        if self.__width == 0 or self.__height == 0:
-            return ''
-
-        row = ''
-        for i in range(self.__height):
-            for j in range(self.__width):
-                row += '#'
-            row += '\n'
-        return row[:-1]
-
-    def __repr__(self):
-        """
-        Rectangle that can be used to recreate it
-        """
-        return "Rectangle({}, {})".format(self.__width, self.__height)
