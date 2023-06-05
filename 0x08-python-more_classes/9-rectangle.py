@@ -61,7 +61,7 @@ class Rectangle():
         if self.__width == 0 or self.__height == 0:
             return ''
         return '\n'.join(
-            [str(self.print_symbol) * self.__width]
+            [str(Rectangle.print_symbol) * self.__width]
             * self.__height)
 
     def __repr__(self):
@@ -86,5 +86,5 @@ class Rectangle():
 
     @classmethod
     def square(cls, size=0):
-        """class Method"""
+        """Returns a new Rectangle instance with width == height == size"""
         return cls(size, size)
