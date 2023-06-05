@@ -56,13 +56,12 @@ class Rectangle():
         """Print Rectangle with char '#'."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        rows = []
+        row = ''
         for i in range(self.__height):
-            row = ''
             for j in range(self.__width):
                 row += '#'
-            rows.append(row)
-        return '\n'.join(rows)
+            row += '\n'
+        return row[:-1]
 
     def __repr__(self):
         """
