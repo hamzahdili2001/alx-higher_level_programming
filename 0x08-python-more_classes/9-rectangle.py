@@ -13,8 +13,8 @@ class Rectangle():
             width - (int)
             height - (int)
         """
-        self.height = height
         self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property
@@ -61,7 +61,7 @@ class Rectangle():
         if self.__width == 0 or self.__height == 0:
             return ''
         return '\n'.join(
-            [str(Rectangle.print_symbol) * self.__width]
+            [str(self.print_symbol) * self.__width]
             * self.__height)
 
     def __repr__(self):
