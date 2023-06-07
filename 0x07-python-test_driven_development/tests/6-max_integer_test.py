@@ -6,60 +6,53 @@ max_integer = __import__('6-max_integer').max_integer
 
 
 class TestMaxInteger(unittest.TestCase):
-    """unittests for max_integer([..])."""
+    """Tests"""
+    def test_empty_list(self):
+        """test_empty_list"""
+        self.assertIsNone(max_integer([]))
 
-    def list(self):
-        """Test an ordered list"""
+    def test_positive_numbers(self):
+        """test_positive_numbers"""
+        self.assertEqual(max_integer([1, 2, 3, 4]), 4)
+        self.assertEqual(max_integer([1, 3, 4, 2]), 4)
 
-        ordered = [1, 2, 3, 4]
-        self.assertEqual(max_integer(ordered), 4)
+    def test_negative_numbers(self):
+        """test_negative_numbers"""
+        self.assertEqual(max_integer([-1, -2, -3, -4]), -1)
+        self.assertEqual(max_integer([-1, -3, -4, -2]), -1)
 
-    def unordered_list(self):
-        """Test an unordered list"""
+    def test_mixed_numbers(self):
+        """test_mixed_numbers"""
+        self.assertEqual(max_integer([-1, 0, 1]), 1)
+        self.assertEqual(max_integer([-10, 0, 10]), 10)
+        self.assertEqual(max_integer([-10, -5, 0]), 0)
 
-        unordered = [1, 2, 4, 3]
-        self.assertEqual(max_integer(unordered), 4)
+    def test_single_element_list(self):
+        """test_mixed_numbers"""
+        self.assertEqual(max_integer([42]), 42)
+        self.assertEqual(max_integer([-100]), -100)
+        self.assertEqual(max_integer([0]), 0)
 
-    def max(self):
-        """Test with max value."""
+    def test_large_numbers(self):
+        """test_large_numbers"""
+        self.assertEqual(max_integer([1_000_000, 100_000, 10_000]), 1_000_000)
+        self.assertEqual(max_integer([1_000_000, 10_000, 100_000]), 1_000_000)
+        self.assertEqual(max_integer([100_000, 10_000, 1_000_000]), 1_000_000)
 
-        max_at_beginning = [4, 3, 2, 1]
-        self.assertEqual(max_integer(max_at_beginning), 4)
+    def test_float_numbers(self):
+        """test_float_numbers"""
+        self.assertAlmostEqual(max_integer([1.1, 2.2, 3.3]), 3.3)
+        self.assertAlmostEqual(max_integer([3.3, 2.2, 1.1]), 3.3)
 
-    def empty_list(self):
-        """Test empty list."""
+    def test_string_values(self):
+        """test_string_values"""
+        self.assertEqual(max_integer(['apple', 'banana', 'cherry']), 'cherry')
+        self.assertEqual(max_integer(['zebra', 'lion', 'elephant']), 'zebra')
 
-        empty = []
-        self.assertEqual(max_integer(empty), None)
-
-    def one_number_list(self):
-        """Test single element."""
-        one_element = [7]
-        self.assertEqual(max_integer(one_element), 7)
-
-    def test_float(self):
-        """Test float."""
-        floats = [1.53, 6.33, -9.123, 15.2, 6.0]
-        self.assertEqual(max_integer(floats), 15.2)
-
-    def mixed_test(self):
-        """Test list of int and float."""
-        ints_and_floats = [1.53, 15.5, -9, 15, 6]
-        self.assertEqual(max_integer(ints_and_floats), 15.5)
-
-    def test_string(self):
-        """Test a string."""
-        string = "Hamza"
-        self.assertEqual(max_integer(string), 'z')
-
-    def test_list_of_strings(self):
-        """Test a list of strings."""
-        strings = ["Hamza", "is", "cool"]
-        self.assertEqual(max_integer(strings), 'is')
-
-    def test_empty_string(self):
-        """Test an empty string."""
-        self.assertEqual(max_integer(""), None)
+    def test_boolean_values(self):
+        """test_boolean_values"""
+        self.assertTrue(max_integer([True, False]))
+        self.assertTrue(max_integer([False, True]))
 
 
 if __name__ == '__main__':
