@@ -9,9 +9,22 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    for char in [".", "?", ":"]:
-        text = text.replace(char, char + "\n\n")
+    current_index = 0
+    while current_index < len(text) and text[current_index] == ' ':
+        current_index += 1
 
-    lines = [line.strip() for line in text.split("\n")]
+    while current_index < len(text):
+        print(text[current_index], end="")
 
-    print("\n".join(lines))
+        if text[current_index] == "\n" or text[current_index] in ".?:":
+            if text[current_index] in ".?:":
+                print("\n")
+
+            current_index += 1
+
+            while current_index < len(text) and text[current_index] == ' ':
+                current_index += 1
+
+            continue
+
+        current_index += 1
