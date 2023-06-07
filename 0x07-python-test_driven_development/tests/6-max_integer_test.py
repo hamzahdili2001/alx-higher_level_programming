@@ -1,41 +1,65 @@
 #!/usr/bin/python3
-"""Unittest for max_integer([..])
-"""
+"""Unittests for max_integer([..])."""
+
 import unittest
-
-
 max_integer = __import__('6-max_integer').max_integer
 
 
 class TestMaxInteger(unittest.TestCase):
-    """Tests for max_integer([..])
-    """
-    def regular_test(self):
-        """Regular Tests"""
-        self.assertEqual(max_integer([1, 2, 3, 4]), 4)
-        self.assertEqual(max_integer([-1, -2, -3, -4]), -1)
-        self.assertEqual(max_integer([33, 40, 50, -20]), 50)
-        self.assertEqual(max_integer([1000, -2000, 4000, 1500]), 4000)
+    """unittests for max_integer([..])."""
+
+    def list(self):
+        """Test an ordered list"""
+
+        ordered = [1, 2, 3, 4]
+        self.assertEqual(max_integer(ordered), 4)
+
+    def unordered_list(self):
+        """Test an unordered list"""
+
+        unordered = [1, 2, 4, 3]
+        self.assertEqual(max_integer(unordered), 4)
+
+    def max(self):
+        """Test with max value."""
+
+        max_at_beginning = [4, 3, 2, 1]
+        self.assertEqual(max_integer(max_at_beginning), 4)
 
     def empty_list(self):
-        """Empty List Test"""
-        self.assertIsNone(max_integer([]))
+        """Test empty list."""
 
-    def string_test(self):
-        """String Tests"""
-        self.assertEqual(max_integer(['a', 'b', 'c', 'd']), 'd')
-        self.assertEqual(max_integer(['c', 'b', 'a']), 'c')
+        empty = []
+        self.assertEqual(max_integer(empty), None)
 
-    def float_test(self):
-        """Float Tests"""
-        self.assertEqual(max_integer([1.4, 1.5, 1.9]), 1.9)
-        self.assertEqual(max_integer([55.3, 1.3, 1.03]), 55.3)
-        self.assertEqual(max_integer(-2.4, -3.5, -2.1), -2.1)
+    def one_number_list(self):
+        """Test single element."""
+        one_element = [7]
+        self.assertEqual(max_integer(one_element), 7)
+
+    def test_float(self):
+        """Test float."""
+        floats = [1.53, 6.33, -9.123, 15.2, 6.0]
+        self.assertEqual(max_integer(floats), 15.2)
 
     def mixed_test(self):
-        """Mixed Tests"""
-        self.assertEqual(max_integer([1, '4', 2.5]), TypeError)
-        self.assertEqual(max_integer(["School", 33, -2.3]), TypeError)
+        """Test list of int and float."""
+        ints_and_floats = [1.53, 15.5, -9, 15, 6]
+        self.assertEqual(max_integer(ints_and_floats), 15.5)
+
+    def test_string(self):
+        """Test a string."""
+        string = "Hamza"
+        self.assertEqual(max_integer(string), 'r')
+
+    def test_list_of_strings(self):
+        """Test a list of strings."""
+        strings = ["Hamza", "is", "cool"]
+        self.assertEqual(max_integer(strings), "name")
+
+    def test_empty_string(self):
+        """Test an empty string."""
+        self.assertEqual(max_integer(""), None)
 
 
 if __name__ == '__main__':
