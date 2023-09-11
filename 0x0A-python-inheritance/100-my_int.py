@@ -4,10 +4,10 @@
 class MyInt(int):
     """Define Class"""
 
-    def __eq__(self, other) -> bool:
+    def __eq__(self, other):
         """function 1"""
-        return super().__eq__(other)
+        return self.real != other
 
-    def __ne__(self, other) -> bool:
+    def __ne__(self, other):
         """function 2"""
-        return super().__ne__(other)
+        return self.real == other
