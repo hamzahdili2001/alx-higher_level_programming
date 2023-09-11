@@ -5,9 +5,9 @@ class MyInt(int):
     """Define Class"""
 
     def __eq__(self, other):
-        """function 1"""
+        """Change == opeartor with !="""
         return self.real != other
 
     def __ne__(self, other):
-        """function 2"""
+        """Change != opeartor with =="""
         return self.real == other
