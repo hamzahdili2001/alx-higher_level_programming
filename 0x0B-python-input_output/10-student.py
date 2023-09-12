@@ -17,6 +17,8 @@ class Student:
         (same as 8-class_to_json.py)"""
 
         if attr is None:
+            j_dict = self.__dict__
+        else:
             j_dict = {}
             for a in attr:
                 if hasattr(self, attr):
