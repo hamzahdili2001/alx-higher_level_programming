@@ -4,12 +4,5 @@
 
 def read_file(filename=""):
     """function that read from a file"""
-    try:
-        with open(filename, 'r', encoding='utf-8') as f:
-            print(f.read(), end='')
-    except FileNotFoundError:
-        pass
-
-
-if __name__ == "__main__":
-    read_file("my_file_0.txt")
+    with open(filename, 'r', encoding='utf-8') as f:
+        print(f.read(), end='')
