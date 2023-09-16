@@ -97,3 +97,11 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """Dict representation"""
+        order = ['x', 'y', 'id', 'height', 'width']
+        attrs = {}
+        for key in order:
+            attrs[key] = getattr(self, key)
+        return attrs
