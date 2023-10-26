@@ -1,0 +1,64 @@
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name("John", "Doe")
+My name is John Doe
+
+>>> say_my_name("John")
+My name is John 
+
+>>> say_my_name("John", "")
+My name is John 
+
+>>> say_my_name(123, "Doe")
+Traceback (most recent call last):
+	...
+TypeError: first_name must be a string
+
+>>> say_my_name("John", 456)
+Traceback (most recent call last):
+	...
+TypeError: last_name must be a string
+
+>>> say_my_name("John" * 100, "Doe" * 100)
+My name is JohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohnJohn DoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoeDoe
+
+
+>>> say_my_name("J@hn", "$oe")
+My name is J@hn $oe
+
+>>> say_my_name("   John  ", "   Doe   ")
+My name is    John      Doe   
+ 
+
+>>> say_my_name("你好", "世界")
+My name is 你好 世界
+
+>>> say_my_name(123, "Doe")
+Traceback (most recent call last):
+	...
+TypeError: first_name must be a string
+
+>>> say_my_name("John", 456)
+Traceback (most recent call last):
+	...
+TypeError: last_name must be a string
+
+>>> say_my_name(3.14, "Doe")
+Traceback (most recent call last):
+	...
+TypeError: first_name must be a string
+
+>>> say_my_name(None, "Doe")
+Traceback (most recent call last):
+	...
+TypeError: first_name must be a string
+
+>>> say_my_name(True, "Doe")
+Traceback (most recent call last):
+	...
+TypeError: first_name must be a string
+
+>>> say_my_name("John", True)
+Traceback (most recent call last):
+	...
+TypeError: last_name must be a string
