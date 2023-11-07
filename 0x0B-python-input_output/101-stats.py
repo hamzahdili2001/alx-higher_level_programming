@@ -29,7 +29,7 @@ try:
             lineCount += 1
 
         if lineCount % 10 == 0:
-            print("File size:", totalFileSize)
+            print("File size: {}".format(totalFileSize))
             for code in sorted(statusCodeCounts.keys()):
                 if statusCodeCounts[code] > 0:
                     print("{}: {}".format(code, statusCodeCounts[code]))
@@ -37,7 +37,7 @@ try:
 except KeyboardInterrupt:
     pass
 
-print("File size:", totalFileSize)
+print("File size: {}".format(totalFileSize))
 for code in sorted(statusCodeCounts.keys()):
     if statusCodeCounts[code] > 0:
         print("{}: {}".format(code, statusCodeCounts[code]))
