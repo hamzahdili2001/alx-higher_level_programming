@@ -1,3 +1,4 @@
 *-main.py
 *.txt
 __py*/
+*.json
