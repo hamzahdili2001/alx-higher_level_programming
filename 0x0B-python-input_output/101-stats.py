@@ -1,48 +1,43 @@
 #!/usr/bin/python3
-"""101.stats.py"""
+"""101-stats.py"""
 
 
-def print_stats(size, codes):
-    """Function that reads stdin line by line and computes metrics"""
-    print("File SIZE: {}".format(size))
-    for key in sorted(codes):
-        print("{}: {}".format(key, codes[key]))
+import sys
 
+totalFileSize = 0
+statusCodeCounts = {
+    200: 0,
+    301: 0,
+    400: 0,
+    401: 0,
+    403: 0,
+    404: 0,
+    405: 0,
+    500: 0,
+}
+lineCount = 0
 
-if __name__ == "__main__":
-    import sys
+try:
+    for line in sys.stdin:
+        parts = line.split()
+        if len(parts) >= 9:
+            statusCode = int(parts[-2])
+            fileSize = int(parts[-1])
 
-    SIZE = 0
-    status = {}
-    valid = ["200", "301", "400", "401", "403", "404", "405", "500"]
-    COUNT = 0
+            totalFileSize += fileSize
+            statusCodeCounts[statusCode] += 1
+            lineCount += 1
 
-    try:
-        for line in sys.stdin:
-            if COUNT == 10:
-                print_stats(SIZE, status)
-                COUNT = 1
-            else:
-                COUNT += 1
+        if lineCount % 10 == 0:
+            print("File size:", totalFileSize)
+            for code in sorted(statusCodeCounts.keys()):
+                if statusCodeCounts[code] > 0:
+                    print("{}: {}".format(code, statusCodeCounts[code]))
 
-            line = line.split()
+except KeyboardInterrupt:
+    pass
 
-            try:
-                SIZE += int(line[-1])
-            except (IndexError, ValueError):
-                pass
-
-            try:
-                if line[-2] in valid:
-                    if status.get(line[-2], -1) == -1:
-                        status[line[-2]] = 1
-                    else:
-                        status[line[-2]] += 1
-            except IndexError:
-                pass
-
-        print_stats(SIZE, status)
-
-    except KeyboardInterrupt:
-        print_stats(SIZE, status)
-        raise
+print("File size:", totalFileSize)
+for code in sorted(statusCodeCounts.keys()):
+    if statusCodeCounts[code] > 0:
+        print("{}: {}".format(code, statusCodeCounts[code]))
