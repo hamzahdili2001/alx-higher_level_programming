@@ -14,8 +14,8 @@ class Test_Base_Init(unittest.TestCase):
         b2 = Base()
         self.assertIsInstance(b1, Base)
         self.assertIsInstance(b2, Base)
-        self.assertFalse(type(b1) == type(Base))
-        self.assertTrue(type(b1) == type(b2))
+        self.assertFalse(type(b1) is type(Base))
+        self.assertTrue(type(b1) is type(b2))
         self.assertFalse(id(b1) == id(b2))
         self.assertFalse(id(b1) == id(Base))
 
