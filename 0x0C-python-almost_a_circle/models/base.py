@@ -3,6 +3,7 @@
 
 import json as jsn
 import csv
+import turtle
 
 
 class Base:
@@ -100,3 +101,38 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
+
+    def draw(list_rectangles, list_squares):
+        """opens a window and draws all the Rectangles and Squares"""
+        tr = turtle.Turtle()
+        tr.screen.bgcolor("#393552")
+        tr.pensize(3)
+        tr.shape("turtle")
+        tr.color("#f6c177")
+
+        for rect in list_rectangles:
+            tr.showturtle()
+            tr.up()
+            tr.goto(rect.x, rect.y)
+            tr.down()
+            for _ in range(2):
+                tr.forward(rect.width)
+                tr.left(90)
+                tr.forward(90)
+                tr.left(90)
+            tr.hideturtle()
+
+        tr.color("#3e8fb0")
+        for sq in list_squares:
+            tr.showturtle()
+            tr.up()
+            tr.goto(sq.x, sq.y)
+            tr.down()
+            for _ in range(2):
+                tr.forward(sq.width)
+                tr.left(90)
+                tr.forward(sq.height)
+                tr.left(90)
+            tr.hideturtle()
+
+        turtle.exitonclick()
