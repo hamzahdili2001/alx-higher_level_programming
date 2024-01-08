@@ -1,11 +1,10 @@
 #!/usr/bin/node
-if (process.argv.length <= 3) {
-  console.log(1);
+
+const args = process.argv.slice(2).map(Number);
+
+if (args.length <= 1) {
+  console.log(0);
 } else {
-  const ints = [];
-  const length = process.argv.length - 2;
-  for (let i = 2; i < process.argv.length; i++) {
-    ints.push(process.argv[i]);
-  }
-  console.log(ints.sort()[length - 2]);
+  const sortedArgs = args.sort((a, b) => a - b);
+  console.log(sortedArgs[sortedArgs.length - 2]);
 }
