@@ -11,14 +11,16 @@ if __name__ == "__main__":
     )
     try:
         req = requests.get(github_url)
-        req.raise_for_status()
         commits = req.json()
-        for commit in commits[:10]:
+        for i in range(10):
             print(
                 "{}: {}".format(
-                    commit.get("sha"),
-                    commit.get("commit").get("author").get("name"),
+                    commits[i].get("sha"),
+                    commits[i]
+                    .get("commit")
+                    .get("author")
+                    .get("name"),
                 )
             )
-    except requests.exceptions.RequestException as e:
+    except Exeption:
         pass
