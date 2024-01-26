@@ -6,7 +6,7 @@ import urllib.request
 if __name__ == "__main__":
     """print the body of the response"""
     with urllib.request.urlopen(
-        "https://intranet.hbtn.io/status"
+        "https://alx-intranet.hbtn.io/status"
     ) as response:
         html = response.read()
         print("Body response:")
