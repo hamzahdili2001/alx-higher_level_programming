@@ -12,8 +12,9 @@ if __name__ == "__main__":
     req = requests.get(github_url)
     commits = req.json()
     for commit in commits[:10]:
-        commit_sha = commit.get("sha")
-        commit_author_name = (
-            commit.get("commit").get("author").get("name")
+        print(
+            "{}: {}".format(
+                commit.get("sha"),
+                commit.get("commit").get("author").get("name"),
+            )
         )
-        print("{}: {}".format(commit_sha, commit_author_name))
