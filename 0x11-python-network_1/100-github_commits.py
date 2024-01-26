@@ -9,12 +9,16 @@ if __name__ == "__main__":
     github_url = "https://api.github.com/repos/{}/{}/commits".format(
         repository_name, owner_name
     )
-    req = requests.get(github_url)
-    commits = req.json()
-    for commit in commits[:10]:
-        print(
-            "{}: {}".format(
-                commit.get("sha"),
-                commit.get("commit").get("author").get("name"),
+    try:
+        req = requests.get(github_url)
+        req.raise_for_status()
+        commits = req.json()
+        for commit in commits[:10]:
+            print(
+                "{}: {}".format(
+                    commit.get("sha"),
+                    commit.get("commit").get("author").get("name"),
+                )
             )
-        )
+    except requests.exceptions.RequestException as e:
+        pass
