@@ -5,18 +5,14 @@
 */
 
 const request = require('request');
-if (process.argv.length > 2) {
-  request(process.argv[2], (error, response, body) => {
-    if (error) console.log(error);
-    const films = JSON.parse(body).results;
-    let count = 0;
-    const character = 'https://swapi-api.alx-tools.com/api/people/18/';
-    for (const film of Object.keys(films)) {
-      if (films[film].characters.includes(character, 0)) {
-        count += 1;
-      }
-    }
-    console.log(count);
+
+const url = process.argv[2];
+request(url, function (error, response, body) {
+  if (error) console.log(error);
+  const data = JSON.parse(body);
+  let sum = 0;
+  for (const result of data.results) {
+    sum += result.characters.filter(value => value.includes('18')).length;
   }
-  );
-}
+  console.log(sum);
+});
